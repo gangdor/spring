@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hw.mapper.PopMapper">
+	<resultMap type="pop" id="popResult">
+		<result column="gu" property="gu"/>
+		<result column="dong" property="dong"/>
+		<result column="total" property="total"/>
+		<result column="one" property="one"/>
+		<result column="two" property="two"/>
+		<result column="three" property="three"/>
+		<result column="four" property="four"/>
+		<result column="five" property="five"/>
+		<result column="six" property="six"/>
+		<result column="sevenover" property="sevenover"/>
+
+	</resultMap>
+	
+	<select id="select" parameterType="String" 
+	resultMap="popResult">
+		SELECT * FROM population WHERE DONG=#{obj}
+	</select>
+	<select id="selectall" resultType="pop">
+		select dong, one from population where one >=7000 and dong!='소계'
+	</select>
+	<!-- <insert id="insert" parameterType="user">
+		INSERT INTO T_USER VALUES (#{id},#{pwd},#{name})
+	</insert>
+	<update id="update" parameterType="user">
+		UPDATE T_USER SET PWD=#{pwd},NAME=#{name} WHERE ID=#{id}
+	</update>
+	<delete id="delete" parameterType="String">
+		DELETE FROM T_USER WHERE ID=#{obj}
+	</delete> -->
+	
+</mapper>
+
+
+
+
+
+
